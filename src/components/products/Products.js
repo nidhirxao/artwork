@@ -14,8 +14,7 @@ function Updates() {
   const [data, setData] = React.useState([]);
   const [load,setLoad] = React.useState(false);
  
-const PORT = process.env.baseURL || "http://localhost:5000";
-  
+const PORT = process.env.baseURL 
   const images = [
     { name:"Amazon", 
       url:Amazon },

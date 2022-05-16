@@ -18,7 +18,7 @@ function Cart() {
   const [data, setData] = useState([])
 
    
-const PORT = process.env.baseURL || "http://localhost:5000";
+const PORT = process.env.baseURL  
   let price =0;
   const[image, setImage] = useState("")
   const images = [
