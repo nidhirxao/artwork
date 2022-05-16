@@ -1,0 +1,34 @@
+.counter{
+    display: flex;
+    flex-direction: row;
+}
+.table-row{
+    display: flex !important;
+    justify-content: center  !important;
+    align-items: center !important;
+}
+.table-row1{
+    margin-top: -70px;
+}
+.counter>p{
+    cursor: pointer;
+    width: 10px;
+    margin: 5px;
+    font-weight: bold;
+    background-color: antiquewhite;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.counterVal{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.price-section{
+    
+}

@@ -1,0 +1,15 @@
+.cart-main{
+    position: relative;
+}
+
+.cart-qty{
+    position: absolute;
+    top: -5px;
+    background: red;
+    border-radius: 50%;
+    width: 18px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}

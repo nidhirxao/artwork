@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  position: relative;
+}
+.cart-icon{
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  right: 55px;
+  margin-bottom: 20px;
+}
+
+.navbar{
+  z-index:100;
+}
