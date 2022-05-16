@@ -7,7 +7,7 @@ import axios from 'axios';
 function Product({image,productid,productName,productPrice}) {
   const [quantity,setQuantity] = useContext(CartContext);
   
-const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com" 
+const PORT = process.env.baseURL ||"https://art-work-web.herokuapp.com" 
 
   const obj ={
     productid:productid,
@@ -34,7 +34,7 @@ const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com"
           <p>Price: {productPrice}</p>
         </div>
         <button className="add-cart-button" onClick={(e)=>{
-           axios.post(`${PORT}/cart/`,obj)
+           axios.post(`${PORT}/api/v1/cart/`,obj)
            .then((res)=>{
              
              console.log(res)

@@ -41,7 +41,7 @@ const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com"
  
 
   useEffect(() => {
-    axios.get(`${PORT}/cart/`)
+    axios.get(`${PORT}/api/v1/cart/`)
     .then((res)=>{
       setData(res.data)
       console.log(res)
@@ -140,7 +140,7 @@ const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com"
                           type="submit"
                            href = "/cart"
                            onClick={()=>{
-                            axios.delete(`${PORT}/cart/${dat.productid}`)
+                            axios.delete(`${PORT}/api/v1/cart/${dat.productid}`)
                             .then((res)=>{
                               console.log(res)
                               price=price-Number(dat.productPrice);
@@ -198,7 +198,7 @@ const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com"
                   <a  onClick={()=>{
                           
 
-                            axios.delete(`${PORT}/cart/`)
+                            axios.delete(`${PORT}/api/v1/cart/`)
                             .then((res)=>{
                               console.log(res)
                               

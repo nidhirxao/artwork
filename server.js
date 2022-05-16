@@ -14,7 +14,7 @@ app.use(cors({origin: true, credentials: true}));
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'build')))
 
-  app.get('/', (req, res) =>
+  app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname,'build', 'index.html'))
   )
 } else {
@@ -39,9 +39,9 @@ const cartRoutes = require("./backend/routes/cart.route")
  
 
 // create product routes
-app.use('/product', productRoutes);
-app.use('/cart', cartRoutes);
-app.use('/order', orderRoutes);
+app.use('/api/v1/product', productRoutes);
+app.use('/api/v1/cart', cartRoutes);
+app.use('/api/v1/order', orderRoutes);
  
 
 const PORT = process.env.PORT || 5000;
