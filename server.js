@@ -14,9 +14,9 @@ app.use(cors({origin: true, credentials: true}));
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'build')))
 
-  app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/public/index.html');
-})
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname,'build', 'index.html'))
+  )
 } else {
   app.get('/', (req, res) => {
     res.send('API is running....')
@@ -32,6 +32,14 @@ app.use(bodyParser.json());
 app.get('/', (req, res)=>{
     res.send('Hello World');
 });
+
+
+const proxy = require('http-proxy-middleware')
+
+module.exports = function(app) {
+    // add other server routes to path array
+    app.use(proxy(['/api' ], { target: 'http://localhost:5000' }));
+} 
 // import product routes
 const productRoutes = require('./backend/routes/product.route');
 const orderRoutes = require('./backend/routes/order.route');
