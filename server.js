@@ -39,9 +39,9 @@ const cartRoutes = require("./backend/routes/cart.route")
  
 
 // create product routes
-app.use('/api/v1/product', productRoutes);
-app.use('/api/v1/cart', cartRoutes);
-app.use('/api/v1/order', orderRoutes);
+app.use('/product', productRoutes);
+app.use('/cart', cartRoutes);
+app.use('/order', orderRoutes);
  
 
 const PORT = process.env.PORT || 5000;

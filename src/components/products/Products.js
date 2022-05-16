@@ -33,7 +33,7 @@ const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com"
   ];
   useEffect(() => {
     axios
-      .get(`${PORT}/api/v1/product/`)
+      .get(`${PORT}/product/`)
       .then((res) => {
         setData(res.data);
         console.log(res);
