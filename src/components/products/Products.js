@@ -14,7 +14,7 @@ function Updates() {
   const [data, setData] = React.useState([]);
   const [load,setLoad] = React.useState(false);
  
-const PORT = process.env.baseURL 
+const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com" 
   const images = [
     { name:"Amazon", 
       url:Amazon },

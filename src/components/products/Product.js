@@ -7,7 +7,7 @@ import axios from 'axios';
 function Product({image,productid,productName,productPrice}) {
   const [quantity,setQuantity] = useContext(CartContext);
   
-const PORT = process.env.baseURL  
+const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com" 
 
   const obj ={
     productid:productid,

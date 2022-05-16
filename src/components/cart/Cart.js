@@ -18,7 +18,7 @@ function Cart() {
   const [data, setData] = useState([])
 
    
-const PORT = process.env.baseURL  
+const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com" 
   let price =0;
   const[image, setImage] = useState("")
   const images = [
@@ -41,7 +41,7 @@ const PORT = process.env.baseURL
  
 
   useEffect(() => {
-    axios.get("${PORT}/api/v1/cart/")
+    axios.get(`${PORT}/api/v1/cart/`)
     .then((res)=>{
       setData(res.data)
       console.log(res)
