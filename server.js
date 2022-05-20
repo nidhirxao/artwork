@@ -32,14 +32,6 @@ app.use(bodyParser.json());
 app.get('/', (req, res)=>{
     res.send('Hello World');
 });
-
-
-const proxy = require('http-proxy-middleware')
-
-module.exports = function(app) {
-    // add other server routes to path array
-    app.use(proxy(['/api' ], { target: 'http://localhost:5000' }));
-} 
 // import product routes
 const productRoutes = require('./backend/routes/product.route');
 const orderRoutes = require('./backend/routes/order.route');
@@ -52,7 +44,7 @@ app.use('/api/v1/cart', cartRoutes);
 app.use('/api/v1/order', orderRoutes);
  
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

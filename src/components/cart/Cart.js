@@ -18,7 +18,7 @@ function Cart() {
   const [data, setData] = useState([])
 
    
-const PORT = process.env.baseURL || "https://art-work-web.herokuapp.com" 
+const PORT = "http://localhost:5001";
   let price =0;
   const[image, setImage] = useState("")
   const images = [

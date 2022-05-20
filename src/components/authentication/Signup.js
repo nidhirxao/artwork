@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const navigate = useNavigate();
+  const [show,setShow] = React.useState(false)
+  const [error,setError] = React.useState(false)
   const [creds, setCreds] = React.useState({
     name:"",
     email:"",
@@ -17,9 +19,17 @@ function Signup() {
 
   const credsSubmit =(e)=>{
     e.preventDefault();
+ 
+    if(creds.name!=''&&creds.email!=''&&creds.password!=''){
+      setError(false)
+      setShow(true)
+    setTimeout(() => navigate("/login"), 5000);
+    }
+    else{
+      setError(true)
+    }
     
-    navigate("/login")
-    
+   
   }
   useEffect(()=>{
     localStorage.setItem("credentials", JSON.stringify(creds));
@@ -34,12 +44,14 @@ function Signup() {
 
   console.log(creds);
   return (
-    <form className="inner-login-signup mt-5">
+    <div style={{display:'flex',textAlign:'start',flexDirection:'column',justifyContent:"center",alignItems:'center'}}>
+      <h4 style={{background:'#00ff55',padding:'6px 8px',borderRadius:'10px',display:`${show===true?"block":"none"}`,color:'white'}}>Registration Successful!! Redireting to login page</h4>
+      <form className="inner-login-signup mt-5">
       <h3>Register</h3>
-
+      <label style={{color:'red',textAlign:'center',display:`${error==true?"block":"none"}`}}>Please fill all the fields</label>
       <div className="form-group">
         <label>Name</label>
-        <input onChange={handleSubmit} type="text" name="name" className="form-control" placeholder="enter name" />
+        <input onChange={handleSubmit} type="text" name="name" className="form-control" placeholder="enter name" required />
       </div>
 
       <div className="form-group">
@@ -50,6 +62,7 @@ function Signup() {
           className="form-control"
           placeholder="Enter email"
           name="email"
+          required
         />
       </div>
 
@@ -61,6 +74,7 @@ function Signup() {
           className="form-control"
           placeholder="Enter password"
           name="password"
+          required
         />
       </div>
      
@@ -71,7 +85,9 @@ function Signup() {
         Already registered <a href="/login">log in</a>
       </p>
     </form>
-  );
+
+    </div>
+    );
 }
 
 export default Signup;
